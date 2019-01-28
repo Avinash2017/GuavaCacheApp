@@ -1,6 +1,7 @@
 package com.avi.cache.config;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 import javax.annotation.PostConstruct;
@@ -15,10 +16,11 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 
 @Component
-public class CacheConfig {	
+public class CacheConfig implements Cache{	
 	
 	private LoadingCache<Long, Employee> employeeCache;
 	private LoadingCache<String, List<Employee>> employeeCacheList;
+	
 	public LoadingCache<String, List<Employee>> getEmployeeCacheList() {
 		return employeeCacheList;
 	}
@@ -78,6 +80,23 @@ public class CacheConfig {
 	private List<Employee> getAllEmployees() {
 		return employeeService.findAll();
 	}
+
+	@Override
+	public Employee getEmployeeWithId(Long id) {
+		try {
+			return employeeCache.get(id);
+		} catch (ExecutionException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public List<Employee> getEmployees() throws ExecutionException {
+		return employeeCacheList.get("ALL_EMPS");
+	}
+
+	
 
 
 
