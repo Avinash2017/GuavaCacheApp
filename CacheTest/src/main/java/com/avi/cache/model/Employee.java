@@ -17,38 +17,38 @@ public class Employee implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "EMP_ID")
-	private Long empId;
+	@Column(name = "emp_id")
+	private Long emp_id;
 		
-	@Column(name = "EMP_NAME")
-	private String empName;
+	@Column(name = "emp_name")
+	private String emp_name;
 	
-	@Column(name = "SALARY")
+	@Column(name = "salary")
 	private Integer salary;
 	
-	@Column(name = "DEPT_ID")
-	private Integer depId;
+	@Column(name = "dept_id")
+	private Integer dept_id;
 	
-	@Column(name = "JOINING_DATE")
-	private Date joiningDate;
+	@Column(name = "joining_date")
+	private Date joining_date;
 	
-	@Column(name = "JOB")
+	@Column(name = "job")
 	private String job;
 
-	public Long getEmpId() {
-		return empId;
+	public Long getEmp_id() {
+		return emp_id;
 	}
 
-	public void setEmpId(Long empId) {
-		this.empId = empId;
+	public void setEmp_id(Long emp_id) {
+		this.emp_id = emp_id;
 	}
 
-	public String getEmpName() {
-		return empName;
+	public String getEmp_name() {
+		return emp_name;
 	}
 
-	public void setEmpName(String empName) {
-		this.empName = empName;
+	public void setEmp_name(String emp_name) {
+		this.emp_name = emp_name;
 	}
 
 	public Integer getSalary() {
@@ -59,20 +59,20 @@ public class Employee implements Serializable{
 		this.salary = salary;
 	}
 
-	public Integer getDepId() {
-		return depId;
+	public Integer getDept_id() {
+		return dept_id;
 	}
 
-	public void setDepId(Integer depId) {
-		this.depId = depId;
+	public void setDept_id(Integer dept_id) {
+		this.dept_id = dept_id;
 	}
 
-	public Date getJoiningDate() {
-		return joiningDate;
+	public Date getJoining_date() {
+		return joining_date;
 	}
 
-	public void setJoiningDate(Date joiningDate) {
-		this.joiningDate = joiningDate;
+	public void setJoining_date(Date joining_date) {
+		this.joining_date = joining_date;
 	}
 
 	public String getJob() {
@@ -83,11 +83,5 @@ public class Employee implements Serializable{
 		this.job = job;
 	}
 
-	@Override
-	public String toString() {
-		return "empId=" + empId + ", empName=" + empName
-				+ ", salary=" + salary + ", depId=" + depId + ", joiningDate="
-				+ joiningDate + ", job=" + job + "";
-	}
 	
 }

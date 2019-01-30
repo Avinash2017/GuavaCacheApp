@@ -1,4 +1,4 @@
-package com.avi.cache;
+/*package com.avi.cache;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -80,3 +80,4 @@ public class CacheTestApplicationTests {
 	
 }
 
+*/

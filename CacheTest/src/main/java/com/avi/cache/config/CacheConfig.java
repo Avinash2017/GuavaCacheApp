@@ -20,7 +20,9 @@ public class CacheConfig implements Cache{
 	
 	private LoadingCache<Long, Employee> employeeCache;
 	private LoadingCache<String, List<Employee>> employeeCacheList;
-	
+	@Autowired	
+	private EmployeeService employeeService;
+
 	public LoadingCache<String, List<Employee>> getEmployeeCacheList() {
 		return employeeCacheList;
 	}
@@ -30,9 +32,7 @@ public class CacheConfig implements Cache{
 		this.employeeCacheList = employeeCacheList;
 	}
 
-	@Autowired	
-	private EmployeeService employeeService;
-
+	
 	public LoadingCache<Long, Employee> getEmployeeCache() {
 		return employeeCache;
 	}
