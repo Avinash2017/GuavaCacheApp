@@ -18,6 +18,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+
 import com.avi.cache.config.CacheConfig;
 import com.avi.cache.model.Employee;
 import com.avi.cache.service.EmployeeService;
@@ -32,8 +33,8 @@ import com.google.common.collect.Lists;
 @RunWith(MockitoJUnitRunner.class)
 public class CacheTestApplicationTests {
 	
-	@Mock
-	private CacheLoader<Long, Employee> cacheLoader;
+	//@Mock
+	//private CacheLoader<String, List<Employee>> cacheLoader;
 	
 	
 	
@@ -75,16 +76,16 @@ public class CacheTestApplicationTests {
 			 CacheConfig configSpy = Mockito.spy(config);
 			 configSpy.setUpEmployeeCacheList();
 			 List<Employee> sourceList = Lists.newArrayList(employeeExpected,employeeExpected2);
-			 //Mockito.doReturn(sourceList).when(configSpy).getEmployees();
-			 configSpy.getAllEmployees();
-			 configSpy.getAllEmployees();
-			 verify(configSpy,times(2)).getAllEmployees();
+			 Mockito.doReturn(sourceList).when(configSpy).getEmployees();
+			 configSpy.getEmployees();
+			 configSpy.getEmployees();
+			 verify(configSpy,times(2)).getEmployees();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	@Test
+/*	@Test
 	@Ignore
     public void testCacheLoaderCalledOnlyOnce() throws Exception {
 		Employee employeeExpected = getEmployee();
@@ -120,6 +121,6 @@ public class CacheTestApplicationTests {
         assertThat(emp1, is(employeeExpected));
         verify(cacheLoader, times(2)).load(100L);
     }
-	
+	*/
 }
 

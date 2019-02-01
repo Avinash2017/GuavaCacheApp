@@ -26,20 +26,39 @@ public class Person {
 	@javax.persistence.Id
 	@Column(name = "person_id")
 	private Integer personId;
-	
+
 	@Column(name = "person_name")
 	private String name;
-	
+
 	@Column(name = "date_of_birth")	
 	private Date dateOfBirth;
-	
+
+	@Column(name = "person_salary")	
+	private Integer personSalary;
+
+	@Column(name = "person_age")	
+	private Integer personAge;
+
 	@Cascade(CascadeType.ALL)
 	@OneToOne
 	@JoinColumn(name = "address_id")
 	Address address;
-	
+
 	//List<Car> car;
-	
+
+
+	public Integer getPersonSalary() {
+		return personSalary;
+	}
+	public void setPersonSalary(Integer personSalary) {
+		this.personSalary = personSalary;
+	}
+	public Integer getPersonAge() {
+		return personAge;
+	}
+	public void setPersonAge(Integer personAge) {
+		this.personAge = personAge;
+	}
 	public Integer getPersonId() {
 		return personId;
 	}
@@ -70,5 +89,5 @@ public class Person {
 	public void setCar(List<Car> car) {
 		this.car = car;
 	}*/
-	
+
 }
