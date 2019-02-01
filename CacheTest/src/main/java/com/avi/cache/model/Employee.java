@@ -8,33 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Data;
+
 @Table(name = "EMP_TEST")
 @Entity
 public class Employee implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@Column(name = "emp_id")
-	private Long emp_id;
-		
-	@Column(name = "emp_name")
-	private String emp_name;
-	
-	@Column(name = "salary")
-	private Integer salary;
-	
-	@Column(name = "dept_id")
-	private Integer dept_id;
-	
-	@Column(name = "joining_date")
-	private Date joining_date;
-	
-	@Column(name = "job")
-	private String job;
-
 	public Long getEmp_id() {
 		return emp_id;
 	}
@@ -82,6 +60,34 @@ public class Employee implements Serializable{
 	public void setJob(String job) {
 		this.job = job;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@Column(name = "emp_id")
+	private Long emp_id;
+		
+	@Column(name = "emp_name")
+	private String emp_name;
+	
+	@Column(name = "salary")
+	private Integer salary;
+	
+	@Column(name = "dept_id")
+	private Integer dept_id;
+	
+	@Column(name = "joining_date")
+	private Date joining_date;
+	
+	@Column(name = "job")
+	private String job;
 
 	
 }

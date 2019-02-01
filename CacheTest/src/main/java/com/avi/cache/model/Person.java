@@ -17,6 +17,11 @@ import org.hibernate.annotations.CascadeType;
 @Table(name = "AVI_PERSON")
 @Entity
 public class Person {
+	@Override
+	public String toString() {
+		return "Person [personId=" + personId + ", name=" + name
+				+ ", dateOfBirth=" + dateOfBirth + ", address=" + address + "]";
+	}
 	@GeneratedValue(strategy  = GenerationType.AUTO)
 	@javax.persistence.Id
 	@Column(name = "person_id")

@@ -18,17 +18,31 @@ import com.google.common.cache.LoadingCache;
 @Component
 public class CacheConfig implements Cache{	
 	
-	private LoadingCache<Long, Employee> employeeCache;
-	private LoadingCache<String, List<Employee>> employeeCacheList;
 	@Autowired	
 	private EmployeeService employeeService;
+	
+	
+	private LoadingCache<Long, Employee> employeeCache;
+	
+	private LoadingCache<String, List<Employee>> employeeCacheList;
+	
+
+
+	public CacheConfig() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public CacheConfig(EmployeeService employeeService) {
+		super();
+		this.employeeService = employeeService;
+	}
 
 	public LoadingCache<String, List<Employee>> getEmployeeCacheList() {
 		return employeeCacheList;
 	}
 
-	public void setEmployeeCacheList(
-			LoadingCache<String, List<Employee>> employeeCacheList) {
+	public void setEmployeeCacheList(LoadingCache<String, List<Employee>> employeeCacheList) {
 		this.employeeCacheList = employeeCacheList;
 	}
 
@@ -49,7 +63,7 @@ public class CacheConfig implements Cache{
 		setUpEmployeeCacheList();
 	}
 
-	private void setUpEmployeeCache() {
+	public void setUpEmployeeCache() {
 		this.employeeCache = CacheBuilder.newBuilder()
 				.expireAfterWrite(20, TimeUnit.SECONDS)
 				.build(new CacheLoader<Long, Employee>() {
@@ -61,7 +75,7 @@ public class CacheConfig implements Cache{
 				});
 		System.out.println(this.employeeCache);
 	}
-	private void setUpEmployeeCacheList() {
+	public void setUpEmployeeCacheList() {
 		this.employeeCacheList = CacheBuilder.newBuilder()
 				.expireAfterWrite(20, TimeUnit.SECONDS)
 				.build(new CacheLoader<String, List<Employee>>() {
@@ -77,7 +91,7 @@ public class CacheConfig implements Cache{
 		return employeeService.findById(id);
 	}
 
-	private List<Employee> getAllEmployees() {
+	public List<Employee> getAllEmployees() {
 		return employeeService.findAll();
 	}
 
